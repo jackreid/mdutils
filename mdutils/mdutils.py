@@ -1,10 +1,10 @@
+# coding=utf-8
 # Python
 #
 # This module implements the Main Markdown class.
 #
 # This file is part of mdutils. https://github.com/didix21/mdutils
 #
-# MIT License: (C) 2018 Dídac Coll
 
 """Module **mdutils**
 
@@ -241,7 +241,7 @@ class MdUtils:
         """
 
         if wrap_width > 0:
-            text = fill(text, wrap_width, break_long_words=False, replace_whitespace=False, drop_whitespace=False)
+            text = fill(text, wrap_width, break_long_words=False, replace_whitespace=False, drop_whitespace=True)
 
         if bold_italics_code or color != 'black' or align:
             self.___update_file_data('\n\n' + self.textUtils.text_format(text, bold_italics_code, color, align))
@@ -270,12 +270,12 @@ class MdUtils:
         """
 
         if wrap_width > 0:
-            text = fill(text, wrap_width, break_long_words=False, replace_whitespace=False, drop_whitespace=False)
+            text = fill(text, wrap_width, break_long_words=False, replace_whitespace=False, drop_whitespace=True)
 
         if bold_italics_code or color != 'black' or align:
-            self.___update_file_data('  \n' + self.textUtils.text_format(text, bold_italics_code, color, align))
+            self.___update_file_data('\n' + self.textUtils.text_format(text, bold_italics_code, color, align))
         else:
-            self.___update_file_data('  \n' + text)
+            self.___update_file_data('\n abc' + text)
 
         return self.file_data_text
 
